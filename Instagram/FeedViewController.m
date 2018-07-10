@@ -13,7 +13,7 @@
 #import "LogInViewController.h"
 #import "AppDelegate.h"
 
-@interface FeedViewController ()  <UITableViewDelegate, UITableViewDataSource>
+@interface FeedViewController () // <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * posts;
 @end
 

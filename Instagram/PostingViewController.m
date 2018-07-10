@@ -40,7 +40,7 @@
     }
     else {
         NSLog(@"Camera 🚫 available so we will use photo library instead");
-//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
 }
@@ -64,25 +64,21 @@
     [Post postUserImage:self.pictureView.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self dismissViewControllerAnimated:(YES) completion:nil];
     }];
-    /*
-     (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-     
-     Post *newPost = [Post new];
-     newPost.image = [self getPFFileFromImage:image];
-     newPost.author = [PFUser currentUser];
-     newPost.caption = caption;
-     newPost.likeCount = @(0);
-     newPost.commentCount = @(0);
-     
-     [newPost saveInBackgroundWithBlock: completion];
-     }
-     */
 }
 
 - (IBAction)cancelTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)photoLibTapped:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+}
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
