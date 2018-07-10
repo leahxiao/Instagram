@@ -19,6 +19,8 @@
 		1982EB9520F414C300336246 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB9420F414C300336246 /* LogInViewController.m */; };
 		1982EB9820F4195700336246 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB9720F4195700336246 /* FeedViewController.m */; };
 		1982EB9B20F436E100336246 /* PostingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB9A20F436E100336246 /* PostingViewController.m */; };
+		1982EB9E20F523AB00336246 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB9D20F523AB00336246 /* Post.m */; };
+		1982EBA120F52B0800336246 /* postCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA020F52B0800336246 /* postCell.m */; };
 		5461A8EC329BF93F900C9947 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5E715EDBCDD10BB541340F /* libPods-Instagram.a */; };
 		68421257237F8004C332E10E /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9BEEEC89094CC8BB2E3300 /* libPods-InstagramTests.a */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,10 @@
 		1982EB9720F4195700336246 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		1982EB9920F436E100336246 /* PostingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostingViewController.h; sourceTree = "<group>"; };
 		1982EB9A20F436E100336246 /* PostingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostingViewController.m; sourceTree = "<group>"; };
+		1982EB9C20F523AB00336246 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		1982EB9D20F523AB00336246 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		1982EB9F20F52B0800336246 /* postCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postCell.h; sourceTree = "<group>"; };
+		1982EBA020F52B0800336246 /* postCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postCell.m; sourceTree = "<group>"; };
 		4E708FD2E9013DE44E34AEEE /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		9E16045F76DE4249A992E6C3 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		D998DB2EA32F017587A516C9 /* libPods-InstagramUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +138,10 @@
 				1982EB5820F3159D00336246 /* ViewController.h */,
 				1982EB5920F3159D00336246 /* ViewController.m */,
 				1982EB5B20F3159D00336246 /* Main.storyboard */,
+				1982EB9F20F52B0800336246 /* postCell.h */,
+				1982EBA020F52B0800336246 /* postCell.m */,
+				1982EB9C20F523AB00336246 /* Post.h */,
+				1982EB9D20F523AB00336246 /* Post.m */,
 				1982EB9920F436E100336246 /* PostingViewController.h */,
 				1982EB9A20F436E100336246 /* PostingViewController.m */,
 				1982EB9620F4195700336246 /* FeedViewController.h */,
@@ -343,10 +353,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Instagram/Pods-Instagram-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -399,9 +415,11 @@
 				1982EB9520F414C300336246 /* LogInViewController.m in Sources */,
 				1982EB9820F4195700336246 /* FeedViewController.m in Sources */,
 				1982EB5A20F3159D00336246 /* ViewController.m in Sources */,
+				1982EBA120F52B0800336246 /* postCell.m in Sources */,
 				1982EB9B20F436E100336246 /* PostingViewController.m in Sources */,
 				1982EB6520F3159E00336246 /* main.m in Sources */,
 				1982EB5720F3159D00336246 /* AppDelegate.m in Sources */,
+				1982EB9E20F523AB00336246 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,7 @@
 #import "ViewController.h"
 
 @interface FeedViewController : ViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

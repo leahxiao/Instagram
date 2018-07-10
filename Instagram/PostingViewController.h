@@ -9,5 +9,7 @@
 #import "ViewController.h"
 
 @interface PostingViewController : ViewController
+@property (weak, nonatomic) IBOutlet UIImageView *pictureView;
+@property (weak, nonatomic) IBOutlet UITextView *captionText;
 
 @end
