@@ -79,6 +79,9 @@
      */
 }
 
+- (IBAction)cancelTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

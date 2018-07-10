@@ -192,7 +192,11 @@
                         <viewLayoutGuide key="safeArea" id="nHy-de-n87"/>
                     </view>
                     <navigationItem key="navigationItem" id="IVW-p4-EjA">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="S1y-OW-qwB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="S1y-OW-qwB">
+                            <connections>
+                                <action selector="cancelTapped:" destination="2Wc-aS-FtY" id="cU2-Ka-9xP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="nFl-cy-fsT">
                             <connections>
                                 <action selector="shareButtonTapped:" destination="2Wc-aS-FtY" id="Mtf-Nd-PxO"/>
