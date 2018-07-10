@@ -119,6 +119,7 @@
                                         <connections>
                                             <outlet property="uploadCaption" destination="3TG-lj-6aB" id="sid-0l-lWe"/>
                                             <outlet property="uploadView" destination="hFP-zu-1zy" id="PsM-kd-vVN"/>
+                                            <segue destination="q8k-sQ-NgB" kind="show" id="vDD-yB-zz5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -148,6 +149,46 @@
             </objects>
             <point key="canvasLocation" x="1725.5999999999999" y="132.68365817091455"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="FP4-Yc-MMT">
+            <objects>
+                <viewController id="q8k-sQ-NgB" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Bv-HB-Kbo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vhu-9k-mL2" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvP-tK-ftc">
+                                <rect key="frame" x="0.0" y="447" width="375" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPb-fu-O1N">
+                                <rect key="frame" x="333" y="544" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VKU-W1-xfB"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailsCaptionLabel" destination="yvP-tK-ftc" id="OXy-fY-Qrs"/>
+                        <outlet property="detailsImageView" destination="vhu-9k-mL2" id="EI8-n5-Wxh"/>
+                        <outlet property="detailsTimestampLabel" destination="yPb-fu-O1N" id="XWk-t7-tYz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWY-2z-T3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2496.8000000000002" y="152.47376311844079"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LHi-pl-Ncd">
             <objects>
@@ -162,7 +203,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjE-bd-Rap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2458" y="133"/>
+            <point key="canvasLocation" x="2518" y="-878"/>
         </scene>
         <!--Posting View Controller-->
         <scene sceneID="Bh4-2j-a4p">
@@ -223,7 +264,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3296.8000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="3377" y="-878"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="81J-gc-Rgm">

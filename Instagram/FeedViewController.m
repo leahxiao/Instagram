@@ -12,6 +12,8 @@
 #import "postCell.h"
 #import "LogInViewController.h"
 #import "AppDelegate.h"
+#import "DetailsViewController.h"
+#import "PostingViewController.h"
 
 @interface FeedViewController () // <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * posts;
@@ -88,15 +90,30 @@
 }
 
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.destinationViewController isKindOfClass:[DetailsViewController class] ]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.post = post;
+    }
+//    else if([segue.destinationViewController isKindOfClass:[PostingViewController class] ]){
+//        PostingViewController *postingViewController = (PostingViewController*) navigationController.topViewController;
+//        postingViewController.delegate = self;
+ //   }
+    else{
+        UINavigationController *navigationController = [segue destinationViewController];
+        NSLog(@"heh");
+    };
 }
-*/
+
+
 
 
 
@@ -109,16 +126,7 @@
     cell.uploadView.file = post.image;
     [cell.uploadView loadInBackground];
     
-//    PFFILE *image = post.image;
-//    [image getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
-//        if (!imageData) {
-//            return NSLog(@"%@", error);
-//        }
-//
-//        // Do something with the image
-//        self.uploadView.image = [UIImage imageWithData:imageData];
-//    }];
-//    }
+
     return cell;
 }
 
