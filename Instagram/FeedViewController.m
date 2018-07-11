@@ -115,17 +115,31 @@
 
 
 
-
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     postCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
     Post *post = self.posts[indexPath.row];
     
+    cell.post = post;
+    
+//   post.likeCount = [NSNumber numberWithInteger:0];
+//    [post saveInBackgroundWithBlock:nil];
     // get all the infor from the chat object and set it onto the screen
     cell.uploadCaption.text = post.caption;
     cell.uploadView.file = post.image;
     [cell.uploadView loadInBackground];
+   // [cell.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", post.likeCount] forState:UIControlStateNormal];
     
+    if([cell.post[@"liked"] isEqual:@YES]){
+        UIImage *image = [UIImage imageNamed:@"favor-icon-red"];
+        [cell.feedLikeButton setImage:image forState:UIControlStateNormal];
+        [cell.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", cell.post.likeCount] forState:UIControlStateNormal];
+    }
+    
+    else{
+        UIImage *image = [UIImage imageNamed:@"favor-icon"];
+        [cell.feedLikeButton setImage:image forState:UIControlStateNormal];
+        [cell.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", cell.post.likeCount] forState:UIControlStateNormal];
+    };
 
     return cell;
 }

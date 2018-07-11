@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		09E3C71529AC524815658ABC /* libPods-InstagramUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D998DB2EA32F017587A516C9 /* libPods-InstagramUITests.a */; };
 		1982EB5720F3159D00336246 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB5620F3159D00336246 /* AppDelegate.m */; };
-		1982EB5A20F3159D00336246 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB5920F3159D00336246 /* ViewController.m */; };
 		1982EB5D20F3159D00336246 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1982EB5B20F3159D00336246 /* Main.storyboard */; };
 		1982EB5F20F3159E00336246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1982EB5E20F3159E00336246 /* Assets.xcassets */; };
 		1982EB6220F3159E00336246 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1982EB6020F3159E00336246 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		1982EB9E20F523AB00336246 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EB9D20F523AB00336246 /* Post.m */; };
 		1982EBA120F52B0800336246 /* postCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA020F52B0800336246 /* postCell.m */; };
 		1982EBA420F5569100336246 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA320F5569100336246 /* DetailsViewController.m */; };
+		1982EBA920F6B2EA00336246 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA820F6B2EA00336246 /* profileViewController.m */; };
 		5461A8EC329BF93F900C9947 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5E715EDBCDD10BB541340F /* libPods-Instagram.a */; };
 		68421257237F8004C332E10E /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9BEEEC89094CC8BB2E3300 /* libPods-InstagramTests.a */; };
 /* End PBXBuildFile section */
@@ -48,8 +48,6 @@
 		1982EB5220F3159D00336246 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1982EB5520F3159D00336246 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1982EB5620F3159D00336246 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1982EB5820F3159D00336246 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1982EB5920F3159D00336246 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1982EB5C20F3159D00336246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1982EB5E20F3159E00336246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1982EB6120F3159E00336246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		1982EBA020F52B0800336246 /* postCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postCell.m; sourceTree = "<group>"; };
 		1982EBA220F5569100336246 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		1982EBA320F5569100336246 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		1982EBA720F6B2EA00336246 /* profileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = profileViewController.h; sourceTree = "<group>"; };
+		1982EBA820F6B2EA00336246 /* profileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = profileViewController.m; sourceTree = "<group>"; };
 		4E708FD2E9013DE44E34AEEE /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		9E16045F76DE4249A992E6C3 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		D998DB2EA32F017587A516C9 /* libPods-InstagramUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,9 +138,9 @@
 			children = (
 				1982EB5520F3159D00336246 /* AppDelegate.h */,
 				1982EB5620F3159D00336246 /* AppDelegate.m */,
-				1982EB5820F3159D00336246 /* ViewController.h */,
-				1982EB5920F3159D00336246 /* ViewController.m */,
 				1982EB5B20F3159D00336246 /* Main.storyboard */,
+				1982EBA720F6B2EA00336246 /* profileViewController.h */,
+				1982EBA820F6B2EA00336246 /* profileViewController.m */,
 				1982EBA220F5569100336246 /* DetailsViewController.h */,
 				1982EBA320F5569100336246 /* DetailsViewController.m */,
 				1982EB9F20F52B0800336246 /* postCell.h */,
@@ -419,10 +419,10 @@
 			files = (
 				1982EB9520F414C300336246 /* LogInViewController.m in Sources */,
 				1982EB9820F4195700336246 /* FeedViewController.m in Sources */,
-				1982EB5A20F3159D00336246 /* ViewController.m in Sources */,
 				1982EBA120F52B0800336246 /* postCell.m in Sources */,
 				1982EB9B20F436E100336246 /* PostingViewController.m in Sources */,
 				1982EB6520F3159E00336246 /* main.m in Sources */,
+				1982EBA920F6B2EA00336246 /* profileViewController.m in Sources */,
 				1982EBA420F5569100336246 /* DetailsViewController.m in Sources */,
 				1982EB5720F3159D00336246 /* AppDelegate.m in Sources */,
 				1982EB9E20F523AB00336246 /* Post.m in Sources */,

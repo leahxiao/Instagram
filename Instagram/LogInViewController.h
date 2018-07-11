@@ -6,8 +6,8 @@
 //  Copyright © 2018 Leah Xiao. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface LogInViewController : ViewController
+@interface LogInViewController : UIViewController
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2018 Leah Xiao. All rights reserved.
 //
 
-#import "ViewController.h"
+#import  <UIKit/UIKit.h>
 
-@interface PostingViewController : ViewController
+@interface PostingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *pictureView;
 @property (weak, nonatomic) IBOutlet UITextView *captionText;
 

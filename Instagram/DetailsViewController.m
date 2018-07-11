@@ -37,6 +37,8 @@
     
     self.detailsImageView.file = self.post.image;
     [self.detailsImageView loadInBackground];
+    
+    //
 
 }
 
@@ -55,4 +57,6 @@
 }
 */
 
+- (IBAction)likeButton:(id)sender {
+}
 @end
