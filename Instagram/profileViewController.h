@@ -11,7 +11,7 @@
 #import <ParseUI/ParseUI.h>
 
 @interface profileViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *proPicImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *proPicImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameProfile;
 
 

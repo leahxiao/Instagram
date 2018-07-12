@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSArray * posts;
+@property (strong, nonatomic) PFUser *currUser;
 
 
 @end
@@ -24,9 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    PFUser *currUser = [PFUser currentUser];
-    self.userNameProfile.text = currUser.username;
-    
+  //  PFUser *currUser = [PFUser currentUser];
+    self.currUser = [PFUser currentUser];
+    self.userNameProfile.text = self.currUser.username;
+    self.proPicImageView.file =self.currUser[@"proPic"];
     
     
     self.collectionView.dataSource= self;
@@ -51,7 +53,7 @@
 - (void) getPosts{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     //[query whereKey:@"likesCount" greaterThan:@100];
-    query.limit = 20;
+    query.limit = 100;
     [query orderByDescending:@"createdAt"];
     //[query includeKey:@"user"];
     // fetch data asynchronously
@@ -98,15 +100,33 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    PFFile *pfVersionofEdit = [self getPFFileFromImage:editedImage];
     
     //  Do something with the images (based on your use case)
-    self.proPicImageView.image = editedImage;
+    self.currUser[@"proPic"] = pfVersionofEdit;
+    [self.currUser saveInBackground];
+    self.proPicImageView.file = pfVersionofEdit;
+    [self.proPicImageView loadInBackground];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+- (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
+    
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFile fileWithName:@"image.png" data:imageData];
+}
 
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
