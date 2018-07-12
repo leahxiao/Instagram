@@ -7,8 +7,9 @@
 //
 
 #import "profileViewController.h"
+#import <parse/Parse.h>
 
-@interface profileViewController ()
+@interface profileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    PFUser *currUser = [PFUser currentUser];
+    self.userNameProfile.text = currUser.username;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,23 +28,40 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)proPicProfileTapped:(id)sender {
+//    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+//    imagePickerVC.delegate = self;
+//    imagePickerVC.allowsEditing = YES;
+//    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+//
+//    [self presentViewController:imagePickerVC animated:YES completion:nil];
+//
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    }
+//    else {
+//        NSLog(@"Camera 🚫 available so we will use photo library instead");
+//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    }
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
     
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    
+    //  Do something with the images (based on your use case)
+    self.proPicImageView.image = editedImage;
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 /*

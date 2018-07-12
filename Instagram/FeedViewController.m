@@ -109,7 +109,7 @@
  //   }
     else{
         UINavigationController *navigationController = [segue destinationViewController];
-        NSLog(@"heh");
+        NSLog(@"done");
     };
 }
 
