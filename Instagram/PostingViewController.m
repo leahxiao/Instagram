@@ -8,6 +8,7 @@
 
 #import "PostingViewController.h"
 #import "Post.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface PostingViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -61,8 +62,11 @@
 
 
 - (IBAction)shareButtonTapped:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [Post postUserImage:self.pictureView.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self dismissViewControllerAnimated:(YES) completion:nil];
+        
     }];
 }
 
