@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface profileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *proPicImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameProfile;
+
 
 @end

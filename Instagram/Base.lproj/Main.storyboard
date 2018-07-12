@@ -348,19 +348,22 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dtv-1S-sfm">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostCollectionCell" id="dtv-1S-sfm" customClass="postCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="157" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="157" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvC-gj-xIJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvC-gj-xIJ" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="157" height="160"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="postView" destination="zvC-gj-xIJ" id="CPK-kF-3aX"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -370,6 +373,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="wCL-oa-AhE"/>
                     <connections>
+                        <outlet property="collectionView" destination="OD8-dH-no3" id="e58-He-lTM"/>
                         <outlet property="proPicImageView" destination="d2H-Pa-2dJ" id="y0l-OU-Qnj"/>
                         <outlet property="userNameProfile" destination="Lnl-UR-d3X" id="2Sv-bv-ZfI"/>
                     </connections>
