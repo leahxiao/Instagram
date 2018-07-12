@@ -17,7 +17,10 @@
 
 @interface FeedViewController () // <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * posts;
+
+@property (strong, nonatomic) PFUser *currUser;
 @end
+
 
 @implementation FeedViewController
 
@@ -127,6 +130,33 @@
     cell.uploadCaption.text = post.caption;
     cell.uploadView.file = post.image;
     [cell.uploadView loadInBackground];
+    
+    
+    NSString *createdAtStringVersion;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //     // Configure the input format to parse the date string
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    NSDate *date = post.createdAt;
+    createdAtStringVersion = [formatter stringFromDate:date];
+    cell.postDateFeedLabel.text = createdAtStringVersion;
+    
+    self.currUser = [PFUser currentUser];
+    cell.postUserFeedLabel.text = self.currUser.username;
+    
+    cell.proPicFeedView.file = self.currUser[@"proPic"]; // set this file to this image
+    [cell.proPicFeedView loadInBackground]; // load it from the backgroup
+    
+    
+ 
+   // cell.proPicFeedView;
+    
+    /*
+     *feedLikeButton;
+     @property (weak, nonatomic) IBOutlet UIImageView *proPicFeedView;
+     @property (weak, nonatomic) IBOutlet UILabel *postUserFeedLabel;
+     @property (weak, nonatomic) IBOutlet UILabel *postDateFeedLabel;
+     */
+     
    // [cell.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", post.likeCount] forState:UIControlStateNormal];
     
     if([cell.post[@"liked"] isEqual:@YES]){

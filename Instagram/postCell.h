@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet PFImageView *uploadView;
 @property (weak, nonatomic) IBOutlet UILabel *uploadCaption;
 @property (weak, nonatomic) IBOutlet UIButton *feedLikeButton;
+@property (weak, nonatomic) IBOutlet PFImageView *proPicFeedView;
+@property (weak, nonatomic) IBOutlet UILabel *postUserFeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *postDateFeedLabel;
 
 
 @property (strong, nonatomic) Post *post;

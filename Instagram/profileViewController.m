@@ -25,11 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-  //  PFUser *currUser = [PFUser currentUser];
+
     self.currUser = [PFUser currentUser];
     self.userNameProfile.text = self.currUser.username;
-    self.proPicImageView.file =self.currUser[@"proPic"];
-    
+ 
+    self.proPicImageView.file = self.currUser[@"proPic"]; // set this file to this image
+    [self.proPicImageView loadInBackground]; // load it from the backgroup 
+ 
     
     self.collectionView.dataSource= self;
     self.collectionView.delegate = self;
@@ -100,14 +102,16 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    PFFile *pfVersionofEdit = [self getPFFileFromImage:editedImage];
+    //PFFile *pfVersionofEdit = [self getPFFileFromImage:editedImage];
+    PFFile *pfVersionofEdit = [PFFile fileWithName:@"pic.png" data:UIImagePNGRepresentation(editedImage)];
     
     //  Do something with the images (based on your use case)
+    [self.proPicImageView setImage:editedImage];
+    [self.proPicImageView loadInBackground]; //retrieving from parse table
     self.currUser[@"proPic"] = pfVersionofEdit;
-    [self.currUser saveInBackground];
-    self.proPicImageView.file = pfVersionofEdit;
-    [self.proPicImageView loadInBackground];
+    [self.currUser saveInBackground]; //uploading to parse table
     
+   // self.proPicImageView.file =self.currUser[@"proPic"];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
