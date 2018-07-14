@@ -26,14 +26,15 @@
 }
 - (IBAction)feedLikeButtonTapped:(id)sender {
     NSLog(@"%@", sender);
+    // if its the girst time you reference it at all, itll just make the column for you. itll just be nil
     if([self.post[@"liked"] isEqual:@YES]){
         self.post[@"liked"] = @NO;
         int numLiked = [self.post.likeCount intValue];
         self.post.likeCount = [NSNumber numberWithInteger:(numLiked - 1) ];
-        [self.post saveInBackgroundWithBlock:nil];
+        [self.post saveInBackgroundWithBlock:nil]; // posts to database
         UIImage *image = [UIImage imageNamed:@"favor-icon"];
         [self.feedLikeButton setImage:image forState:UIControlStateNormal];
-        [self.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", self.post.likeCount] forState:UIControlStateNormal];
+        [self.feedLikeButton setTitle:[NSString stringWithFormat:@"%@", self.post.likeCount] forState:UIControlStateNormal]; //stack lmao
     }
     
     else{

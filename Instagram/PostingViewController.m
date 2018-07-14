@@ -9,6 +9,7 @@
 #import "PostingViewController.h"
 #import "Post.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <MapKit/MapKit.h>
 
 @interface PostingViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -47,8 +48,9 @@
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    //initial contraints
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
+    // fills the thing
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
     resizeImageView.image = image;
     
@@ -62,7 +64,9 @@
 
 
 - (IBAction)shareButtonTapped:(id)sender {
+    // displays hud
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //if this works, stop the hud and then make the view controller go away
     [Post postUserImage:self.pictureView.image withCaption:self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         [self dismissViewControllerAnimated:(YES) completion:nil];
@@ -81,7 +85,7 @@
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 
@@ -94,7 +98,7 @@
    //  Do something with the images (based on your use case)
     self.pictureView.image = editedImage;
 
-    // Dismiss UIImagePickerController to go back to your original view controller
+    // Dismiss UIImagePickerController to go back to your original view controller, always dismisses current
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

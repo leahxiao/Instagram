@@ -11,12 +11,13 @@
 #import "Post.h"
 #import "PostingViewController.h"
 #import "FeedViewController.h"
+#import "LocationsViewController.h"
 
-
-@interface DetailsViewController ()
+@interface DetailsViewController () <LocationsViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *detailsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *detailsCaptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsTimestampLabel;
+
 
 @end
 
@@ -47,16 +48,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    LocationsViewController *locationsController= [segue destinationViewController];
+   // locationsController.photoImage = self.myImage;
+    locationsController.delegate = self;
+    
 }
-*/
+
 
 - (IBAction)likeButton:(id)sender {
+    
 }
+
+
+
+
 @end

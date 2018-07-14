@@ -55,12 +55,15 @@
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
+    
+    //completion block, make sure that you retrieve a user. call the fucntionname, pass in useermae and pasword and then check to make sure user is returned.
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
-            [self performSegueWithIdentifier:@"feedView" sender:nil];
+            // follow segue with this name
+            [self performSegueWithIdentifier:@"feedView" sender:nil];      // sender is a function 
             
             // display view controller that needs to shown after successful login
         }

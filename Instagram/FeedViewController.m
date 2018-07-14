@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "DetailsViewController.h"
 #import "PostingViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface FeedViewController () // <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray * posts;
@@ -31,6 +32,8 @@
     [self getPosts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
+    
     [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:refreshControl atIndex:0];
     UIRefreshControl *refCont = [[UIRefreshControl alloc] init];
@@ -106,10 +109,6 @@
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.post = post;
     }
-//    else if([segue.destinationViewController isKindOfClass:[PostingViewController class] ]){
-//        PostingViewController *postingViewController = (PostingViewController*) navigationController.topViewController;
-//        postingViewController.delegate = self;
- //   }
     else{
         UINavigationController *navigationController = [segue destinationViewController];
         NSLog(@"done");

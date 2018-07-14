@@ -23,6 +23,9 @@
 		1982EBA420F5569100336246 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA320F5569100336246 /* DetailsViewController.m */; };
 		1982EBA920F6B2EA00336246 /* profileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBA820F6B2EA00336246 /* profileViewController.m */; };
 		1982EBAF20F6D20E00336246 /* postCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBAE20F6D20E00336246 /* postCollectionViewCell.m */; };
+		1982EBB120F8848A00336246 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1982EBB020F8848A00336246 /* MapKit.framework */; };
+		1982EBB420F885B400336246 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBB320F885B400336246 /* LocationsViewController.m */; };
+		1982EBB720F88C8800336246 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1982EBB620F88C8800336246 /* LocationCell.m */; };
 		5461A8EC329BF93F900C9947 /* libPods-Instagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5E715EDBCDD10BB541340F /* libPods-Instagram.a */; };
 		68421257237F8004C332E10E /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9BEEEC89094CC8BB2E3300 /* libPods-InstagramTests.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,11 @@
 		1982EBA820F6B2EA00336246 /* profileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = profileViewController.m; sourceTree = "<group>"; };
 		1982EBAD20F6D20E00336246 /* postCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postCollectionViewCell.h; sourceTree = "<group>"; };
 		1982EBAE20F6D20E00336246 /* postCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = postCollectionViewCell.m; sourceTree = "<group>"; };
+		1982EBB020F8848A00336246 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1982EBB220F885B400336246 /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsViewController.h; sourceTree = "<group>"; };
+		1982EBB320F885B400336246 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsViewController.m; sourceTree = "<group>"; };
+		1982EBB520F88C8800336246 /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		1982EBB620F88C8800336246 /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
 		4E708FD2E9013DE44E34AEEE /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		9E16045F76DE4249A992E6C3 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		D998DB2EA32F017587A516C9 /* libPods-InstagramUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1982EBB120F8848A00336246 /* MapKit.framework in Frameworks */,
 				5461A8EC329BF93F900C9947 /* libPods-Instagram.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +151,10 @@
 				1982EB5520F3159D00336246 /* AppDelegate.h */,
 				1982EB5620F3159D00336246 /* AppDelegate.m */,
 				1982EB5B20F3159D00336246 /* Main.storyboard */,
+				1982EBB520F88C8800336246 /* LocationCell.h */,
+				1982EBB620F88C8800336246 /* LocationCell.m */,
+				1982EBB220F885B400336246 /* LocationsViewController.h */,
+				1982EBB320F885B400336246 /* LocationsViewController.m */,
 				1982EBAD20F6D20E00336246 /* postCollectionViewCell.h */,
 				1982EBAE20F6D20E00336246 /* postCollectionViewCell.m */,
 				1982EBA720F6B2EA00336246 /* profileViewController.h */,
@@ -187,6 +200,7 @@
 		BE799E3D4FB7FA0F83032BF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1982EBB020F8848A00336246 /* MapKit.framework */,
 				DD5E715EDBCDD10BB541340F /* libPods-Instagram.a */,
 				EF9BEEEC89094CC8BB2E3300 /* libPods-InstagramTests.a */,
 				D998DB2EA32F017587A516C9 /* libPods-InstagramUITests.a */,
@@ -426,7 +440,9 @@
 				1982EB9520F414C300336246 /* LogInViewController.m in Sources */,
 				1982EB9820F4195700336246 /* FeedViewController.m in Sources */,
 				1982EBA120F52B0800336246 /* postCell.m in Sources */,
+				1982EBB420F885B400336246 /* LocationsViewController.m in Sources */,
 				1982EB9B20F436E100336246 /* PostingViewController.m in Sources */,
+				1982EBB720F88C8800336246 /* LocationCell.m in Sources */,
 				1982EB6520F3159E00336246 /* main.m in Sources */,
 				1982EBA920F6B2EA00336246 /* profileViewController.m in Sources */,
 				1982EBA420F5569100336246 /* DetailsViewController.m in Sources */,
